@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final postBloc= GetIt.I<PostBloc>()..add(FetchPosts());
+    final postBloc= GetIt.I<PostBloc>();
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => CounterCubit()),

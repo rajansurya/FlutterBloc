@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:state_bloc/bloc/PostBloc.dart';
 import 'package:state_bloc/bloc/auth_bloc.dart';
 import 'package:state_bloc/cubit/counter_cubit.dart';
 
+import '../bloc/PostEvent.dart';
 import '../bloc/counter_bloc.dart';
 
 class IncreDecre extends StatelessWidget{
@@ -13,6 +15,7 @@ class IncreDecre extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+
     // final counterState=BlocProvider.of<CounterCubit>(context);
     final counterBloc=context.watch<CounterBloc>().state; /*as AuthStateSuccess;*/
     if(counterBloc is AuthStateInitial){
@@ -40,6 +43,7 @@ class IncreDecre extends StatelessWidget{
             FloatingActionButton(
               heroTag: 'minus',
               onPressed: () {
+                context.read<PostBloc>().add(FetchPosts());
                 context.read<CounterBloc>().add(CounterDecrement());
                 // counterState.decreament();
                 // context.read<CounterBloc>().decreament();
