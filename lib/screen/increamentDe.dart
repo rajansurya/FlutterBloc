@@ -6,16 +6,26 @@ import 'package:state_bloc/bloc/auth_bloc.dart';
 
 import '../bloc/counter_bloc.dart';
 
-class IncreDecre extends StatelessWidget {
+class IncreDecre extends StatefulWidget {
   const IncreDecre({super.key});
 
+  @override
+  State<IncreDecre> createState() {
+   return _IncreDecreState();
+  }
+}
+class _IncreDecreState extends State<IncreDecre>{
+  @override
+  void initState() {
+    super.initState();
+    context.read<PostBloc>().add(FetchPosts());
+  }
   @override
   Widget build(BuildContext context) {
     // final counterState=BlocProvider.of<CounterCubit>(context);
     final counterBloc =
-        context.watch<CounterBloc>().state; /*as AuthStateSuccess;*/
+        context.watch<CounterBloc>().state;
     if (counterBloc is AuthStateInitial) {
-// Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (ctx)=>IncreDecre()));
     } else if (counterBloc is AuthStateFailure) {
     } else if (counterBloc is AuthStateSuccess) {}
     return BlocListener<PostBloc, PostState>(
@@ -29,7 +39,7 @@ class IncreDecre extends StatelessWidget {
           }
         },
         child: Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(title: const Text('Post data'),),
           floatingActionButton: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -47,7 +57,7 @@ class IncreDecre extends StatelessWidget {
                 FloatingActionButton(
                   heroTag: 'minus',
                   onPressed: () {
-                    context.read<PostBloc>().add(FetchPosts());
+
                     context.read<CounterBloc>().add(CounterDecrement());
                     // counterState.decreament();
                     // context.read<CounterBloc>().decreament();
@@ -72,6 +82,7 @@ class IncreDecre extends StatelessWidget {
                         child: ListTile(
                           leading: const Icon(Icons.access_time_rounded),
                           title: Text(data[index].title),
+                          subtitle: Text(data[index].body),
                           shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
                         ),
                       );
@@ -85,4 +96,6 @@ class IncreDecre extends StatelessWidget {
           ),
         ));
   }
+
+
 }
