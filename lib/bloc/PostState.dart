@@ -1,5 +1,3 @@
-// bloc/post_state.dart
-
 
 import '../models/Post.dart';
 

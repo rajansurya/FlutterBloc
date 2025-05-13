@@ -6,8 +6,6 @@ import 'package:state_bloc/bloc/app_bloc_observer.dart';
 import 'package:state_bloc/bloc/counter_bloc.dart';
 import 'package:state_bloc/cubit/counter_cubit.dart';
 import 'package:state_bloc/home_screen.dart';
-
-import 'bloc/PostEvent.dart';
 import 'get_it/get_it.dart';
 
 void main() {

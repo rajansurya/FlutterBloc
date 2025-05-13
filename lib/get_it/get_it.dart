@@ -13,8 +13,10 @@ void configureDependencies()=>getItInt.init();
 
 void setupDependencies() {
   // Step 1: Register the repository
-  getItInt.registerLazySingleton<PostRepository>(() => PostRepository());
-
+  // getItInt.registerLazySingleton<PostRepository>(() => PostRepository());
+  getItInt.registerSingleton<PostRepository>(PostRepository());
   // Step 2: Register the bloc with dependency injection
   getItInt.registerLazySingleton<PostBloc>(() => PostBloc(getItInt<PostRepository>()));
+
+  // getItInt.registerLazySingleton(()=>PostRepository());
 }

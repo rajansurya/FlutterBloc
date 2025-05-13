@@ -1,10 +1,11 @@
-// bloc/post_bloc.dart
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../repo/PostRepository.dart';
-import 'PostEvent.dart';
 import 'PostState.dart';
+part 'PostEvent.dart';
+
 
 @injectable
 class PostBloc extends Bloc<PostEvent, PostState> {
