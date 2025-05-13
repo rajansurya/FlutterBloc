@@ -6,15 +6,15 @@ import 'package:state_bloc/bloc/auth_bloc.dart';
 
 import '../bloc/counter_bloc.dart';
 
-class IncreDecre extends StatefulWidget {
-  const IncreDecre({super.key});
+class IncrementDecrement extends StatefulWidget {
+  const IncrementDecrement({super.key});
 
   @override
-  State<IncreDecre> createState() {
-   return _IncreDecreState();
+  State<IncrementDecrement> createState() {
+   return _IncrementDecrementState();
   }
 }
-class _IncreDecreState extends State<IncreDecre>{
+class _IncrementDecrementState extends State<IncrementDecrement>{
   @override
   void initState() {
     super.initState();

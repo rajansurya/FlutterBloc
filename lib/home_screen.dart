@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:state_bloc/bloc/counter_bloc.dart';
 import 'package:state_bloc/cubit/counter_cubit.dart';
-import 'package:state_bloc/screen/increamentDe.dart';
+import 'package:state_bloc/screen/IncrementDecrement.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: const Icon(Icons.navigate_next_outlined),
           onPressed: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (ctx) => const IncreDecre()));
+                .push(MaterialPageRoute(builder: (ctx) => const IncrementDecrement()));
           }),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
