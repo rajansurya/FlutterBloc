@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:state_bloc/bloc/counter_bloc.dart';
-import 'package:state_bloc/cubit/counter_cubit.dart';
 import 'package:state_bloc/screen/IncrementDecrement.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -21,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title:const  Text("Home Data"),
+        title: const Text("Home Data"),
       ),
       body: Center(
         child: Column(
@@ -42,10 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.navigate_next_outlined),
           onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (ctx) => const IncrementDecrement()));
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (ctx) => const IncrementDecrement()));
           }),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
