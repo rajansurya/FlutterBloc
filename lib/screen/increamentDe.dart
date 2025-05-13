@@ -22,8 +22,11 @@ class IncreDecre extends StatelessWidget {
         listener: (BuildContext context, PostState state) {
           if (state is PostLoading) {
             ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text('HIhi')));
-          } else if (state is PostLoaded) {}
+                .showSnackBar(const SnackBar(content: Text('Loading data...')));
+          } else if (state is PostLoaded) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('Loading completed...')));
+          }
         },
         child: Scaffold(
           appBar: AppBar(),
@@ -64,10 +67,13 @@ class IncreDecre extends StatelessWidget {
                 return ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (ctx, index) {
-                      return ListTile(
-                        leading: Icon(Icons.access_time_rounded),
-                        title: Text(data[index].title),
-                        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
+                      return Card(
+                        margin:const  EdgeInsets.only(top: 5,bottom: 5,left: 7,right: 7),
+                        child: ListTile(
+                          leading: const Icon(Icons.access_time_rounded),
+                          title: Text(data[index].title),
+                          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
+                        ),
                       );
                     });
               }else {
