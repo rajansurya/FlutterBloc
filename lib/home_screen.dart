@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:state_bloc/bloc/counter_bloc.dart';
+import 'package:state_bloc/bloc/counter/counter_bloc.dart';
 import 'package:state_bloc/screen/IncrementDecrement.dart';
 
 class MyHomePage extends StatefulWidget {

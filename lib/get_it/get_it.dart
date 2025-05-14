@@ -4,7 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:state_bloc/get_it/get_it.config.dart';
 
-import '../bloc/PostBloc.dart';
+import '../bloc/posts/PostBloc.dart';
 import '../repo/PostRepository.dart';
 
 final getItInstance=GetIt.instance;

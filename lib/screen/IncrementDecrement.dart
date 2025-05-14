@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:state_bloc/bloc/PostBloc.dart';
-import 'package:state_bloc/bloc/PostState.dart';
-import 'package:state_bloc/bloc/auth_bloc.dart';
+import 'package:state_bloc/bloc/posts/PostBloc.dart';
+import 'package:state_bloc/bloc/posts/PostState.dart';
+import 'package:state_bloc/bloc/auth/auth_bloc.dart';
 
-import '../bloc/counter_bloc.dart';
+import '../bloc/counter/counter_bloc.dart';
+import '../cubit/CounterCubit.dart';
 
 class IncrementDecrement extends StatefulWidget {
   const IncrementDecrement({super.key});
@@ -22,12 +23,15 @@ class _IncrementDecrementState extends State<IncrementDecrement>{
   }
   @override
   Widget build(BuildContext context) {
-    // final counterState=BlocProvider.of<CounterCubit>(context);
-    final counterBloc =
-        context.watch<CounterBloc>().state;
+    /*Access via BlocProvider*/
+    final counterCubitState=BlocProvider.of<CounterCubit>(context);
+    final counterBloc = context.watch<CounterBloc>().state;
+
+    /*State handling*/
     if (counterBloc is AuthStateInitial) {
     } else if (counterBloc is AuthStateFailure) {
     } else if (counterBloc is AuthStateSuccess) {}
+
     return BlocListener<PostBloc, PostState>(
         listener: (BuildContext context, PostState state) {
           if (state is PostLoading) {
@@ -45,11 +49,16 @@ class _IncrementDecrementState extends State<IncrementDecrement>{
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 FloatingActionButton(
-                  heroTag: '${counterBloc.isEven}',
+                  heroTag: 'plus',
                   onPressed: () {
-                    // counterState.increament();
+                    /*create instance of CounterBloc and access the function*/
+                    counterCubitState.incrementCounter();
+
+                    /*Access Bloc instance through context*/
                     context.read<CounterBloc>().add(CounterIncrement());
-                    // context.read<CounterBloc>().increament();
+
+                    /*Cubit - Access Bloc instance through context */
+                    // context.read<CounterBloc>().incrementCounter();
                   },
                   tooltip: 'Increment',
                   child: const Icon(Icons.add),
@@ -57,12 +66,16 @@ class _IncrementDecrementState extends State<IncrementDecrement>{
                 FloatingActionButton(
                   heroTag: 'minus',
                   onPressed: () {
+                    /*create instance of CounterBloc and access the function*/
+                    counterCubitState.decrementCounter();
 
+                    /*Access Bloc instance through context*/
                     context.read<CounterBloc>().add(CounterDecrement());
-                    // counterState.decreament();
-                    // context.read<CounterBloc>().decreament();
+
+                    /*Cubit - Access Bloc instance through context */
+                    // context.read<CounterBloc>().decrementCounter();
                   },
-                  tooltip: 'Increment',
+                  tooltip: 'Decrement',
                   child: const Icon(Icons.remove),
                 ),
               ]),

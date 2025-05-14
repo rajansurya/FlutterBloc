@@ -1,5 +1,5 @@
 
-import '../models/Post.dart';
+import '../../models/Post.dart';
 
 abstract class PostState {}
 

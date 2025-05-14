@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:state_bloc/bloc/PostBloc.dart';
+import 'package:state_bloc/bloc/posts/PostBloc.dart';
 import 'package:state_bloc/bloc/app_bloc_observer.dart';
-import 'package:state_bloc/bloc/counter_bloc.dart';
-import 'package:state_bloc/cubit/counter_cubit.dart';
+import 'package:state_bloc/bloc/counter/counter_bloc.dart';
+import 'package:state_bloc/cubit/CounterCubit.dart';
 import 'package:state_bloc/home_screen.dart';
 
 import 'get_it/get_it.dart';
