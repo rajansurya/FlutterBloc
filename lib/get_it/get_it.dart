@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:state_bloc/get_it/get_it.config.dart';
 
 import '../bloc/posts/PostBloc.dart';
-import '../repo/PostRepository.dart';
+import '../repo/PostRepositoryImpl.dart';
 
 final getItInstance=GetIt.instance;
 
@@ -14,10 +14,11 @@ void configureDependencies()=>getItInstance.init();
 
 void setupDependencies() {
   // Step 1: Register the repository
-  getItInstance.registerLazySingleton<PostRepository>(() => PostRepository());
+ // getItInstance.registerLazySingleton<>()
+  //getItInstance.registerLazySingleton<PostRepository>(() => PostRepository());
   // getItInstance.registerSingleton<PostRepository>(PostRepository());
   // Step 2: Register the bloc with dependency injection
-  getItInstance.registerLazySingleton<PostBloc>(() => PostBloc(getItInstance<PostRepository>()));
+ // getItInstance.registerLazySingleton<PostBloc>(() => PostBloc(getItInstance<PostRepository>()));
 
   // getItInt.registerLazySingleton(()=>PostRepository());
 }

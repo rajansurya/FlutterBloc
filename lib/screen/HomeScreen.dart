@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:state_bloc/bloc/counter/counter_bloc.dart';
+import 'package:state_bloc/cubit/CounterCubit.dart';
 import 'package:state_bloc/screen/IncrementDecrement.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -29,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            BlocBuilder<CounterBloc, int>(builder: (ctx, stateCounter) {
+            BlocBuilder<CounterCubit, int>(builder: (ctx, stateCounter) {
               return Text(
                 '$stateCounter',
                 style: Theme.of(context).textTheme.headlineMedium,

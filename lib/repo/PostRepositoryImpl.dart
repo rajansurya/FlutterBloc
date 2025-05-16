@@ -1,12 +1,14 @@
 import 'dart:convert';
 
 import 'package:injectable/injectable.dart';
+import 'package:state_bloc/repo/repointerface/PostRepository.dart';
 
 import '../models/Post.dart';
 import 'package:http/http.dart' as http;
 
-@injectable
-class PostRepository {
+@LazySingleton(as:PostRepository)
+class PostRepositoryImpl implements PostRepository {
+  @override
   Future<List<Post>> fetchPosts() async {
     final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
     print("Che11==== ${response.body}");

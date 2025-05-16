@@ -5,6 +5,7 @@ class CounterCubit extends Cubit<int> {
 
   void incrementCounter() {
     emit(state + 1);
+    print("cubit count");
   }
 
   void decrementCounter() {
@@ -12,6 +13,7 @@ class CounterCubit extends Cubit<int> {
       addError('Counter should above 0');
     }
     emit(state - 1);
+    print("cubit count");
   }
 
   @override
