@@ -1,7 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 part 'counter_event.dart';
 
+@lazySingleton
 class CounterBloc extends Bloc<CounterEvent, int> {
   CounterBloc() : super(0) {
 

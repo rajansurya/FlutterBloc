@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => CounterCubit()),
-        BlocProvider(create: (ctx) => CounterBloc()),
+        BlocProvider(create: (_) => getItInstance<CounterCubit>()),
+        BlocProvider(create: (ctx) => getItInstance<CounterBloc>()),
         BlocProvider(create: (ctx) => getItInstance<PostBloc>()/*GetIt.I<PostBloc>()*/)
       ],
       child: MaterialApp(

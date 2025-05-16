@@ -12,7 +12,9 @@ import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:http/http.dart' as _i519;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:state_bloc/bloc/counter/counter_bloc.dart' as _i386;
 import 'package:state_bloc/bloc/posts/PostBloc.dart' as _i36;
+import 'package:state_bloc/cubit/CounterCubit.dart' as _i784;
 import 'package:state_bloc/modules/RegisterModule.dart' as _i722;
 import 'package:state_bloc/repo/PostRepositoryImpl.dart' as _i338;
 import 'package:state_bloc/repo/repointerface/PostRepository.dart' as _i403;
@@ -31,6 +33,8 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final registerModule = _$RegisterModule();
+    gh.factory<_i784.CounterCubit>(() => _i784.CounterCubit());
+    gh.lazySingleton<_i386.CounterBloc>(() => _i386.CounterBloc());
     gh.lazySingleton<_i519.Client>(() => registerModule.httpClient);
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio);
     gh.lazySingleton<_i403.PostRepository>(() => _i338.PostRepositoryImpl());
