@@ -7,7 +7,7 @@ import 'PostState.dart';
 part 'PostEvent.dart';
 
 
-@injectable
+@injectable  /* This is for Factory method design pattern object provider */
 class PostBloc extends Bloc<PostEvent, PostState> {
   final PostRepository repository;
 

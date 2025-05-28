@@ -25,6 +25,19 @@ class MyApp extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [
+        /*1. Define all BlocProvider here('MultiBlocProvider')
+        * 2. register Class using '@injectable' , '@lazySingleton' to provide Bloc instance
+        * 3. BLoc uses stream concept to emit data
+        * 4. BLoc and Cubit uses same base class (BlocBase)
+        * 5. Module register via define abstract class as '@module'
+        * 6. Listening BlocBuilder in Widgets
+        * 7. class BlocBuilder<B extends StateStreamable<S>, S> extends BlocBuilderBase<B, S> so whenever defining Bloc class required to extends
+        *    class Bloc<Event, State>  to listening Event and accordingly returns State
+        *
+        * 8. BlocBuilder<BlocClass, State> define BlocClass as Bloc and State as Bloc class state is define
+        * */
+
+
         BlocProvider(create: (_) => getItInstance<CounterCubit>()),
         BlocProvider(create: (ctx) => getItInstance<CounterBloc>()),
         BlocProvider(create: (ctx) => getItInstance<PostBloc>()/*GetIt.I<PostBloc>()*/)
