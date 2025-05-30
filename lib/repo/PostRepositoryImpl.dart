@@ -31,7 +31,7 @@ import '../models/Post.dart';
    print("Che11==== ${responseDio.data}");
     if (responseDio.statusCode == 200) {
       // final data = jsonDecode(responseDio.data) as List;
-      final data =responseDio.data as List;
+      final data =responseDio.data as List<dynamic>;
       return data.map((e) => Post.fromJson(e)).toList();
     } else {
       throw Exception('Failed to load posts');
